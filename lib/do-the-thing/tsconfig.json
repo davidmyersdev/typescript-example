@@ -2,9 +2,8 @@
   /* Visit https://aka.ms/tsconfig to read more about this file */
   "compilerOptions": {
     "declaration": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "module": "commonjs",
+    "module": "ESNext",
+    "moduleResolution": "Node",
     "outDir": "./dist",
     "skipLibCheck": true,
     "strict": true,
