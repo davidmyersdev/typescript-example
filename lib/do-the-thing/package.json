@@ -1,0 +1,14 @@
+{
+  "name": "@voraciousdev/do-the-thing",
+  "version": "0.1.0",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "scripts": {
+    "build": "tsc && npm run build:subpath",
+    "build:subpath": "tsc --project ./subpath/tsconfig.json"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  }
+}

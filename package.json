@@ -1,0 +1,17 @@
+{
+  "name": "@voraciousdev/typescript-example",
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "build": "npm --prefix lib/do-the-thing run build",
+    "postinstall": "npm run build",
+    "preinstall": "npm --prefix lib/do-the-thing install",
+    "test": "tsc"
+  },
+  "devDependencies": {
+    "typescript": "^4.8.2"
+  },
+  "dependencies": {
+    "@voraciousdev/do-the-thing": "file:lib/do-the-thing"
+  }
+}
