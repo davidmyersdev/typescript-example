@@ -4,6 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "npm --prefix lib/do-the-thing run build",
+    "clean": "npm --prefix lib/do-the-thing run clean",
     "postinstall": "npm run build",
     "preinstall": "npm --prefix lib/do-the-thing install",
     "test": "tsc"

@@ -2,13 +2,30 @@
   "name": "@voraciousdev/do-the-thing",
   "version": "0.1.0",
   "type": "module",
-  "main": "./dist/index.js",
+  "main": "./cjs/dist/index.js",
   "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./cjs/dist/index.js",
+      "import": "./dist/index.js"
+    },
+    "./subpath": {
+      "require": "./subpath/cjs/dist/index.js",
+      "import": "./subpath/dist/index.js"
+    }
+  },
   "scripts": {
-    "build": "tsc && npm run build:subpath",
-    "build:subpath": "tsc --project ./subpath/tsconfig.json"
+    "build": "npm run clean && npm run build:base && npm run build:subpath",
+    "build:base": "npm run build:base:cjs && npm run build:base:esm",
+    "build:base:cjs": "tsc --project ./cjs/tsconfig.json",
+    "build:base:esm": "tsc",
+    "build:subpath": "npm run build:subpath:cjs && npm run build:subpath:esm",
+    "build:subpath:cjs": "tsc --project ./subpath/cjs/tsconfig.json",
+    "build:subpath:esm": "tsc --project ./subpath/tsconfig.json",
+    "clean": "rimraf ./dist ./cjs/dist ./subpath/dist ./subpath/cjs/dist"
   },
   "devDependencies": {
+    "rimraf": "^3.0.2",
     "typescript": "^4.8.2"
   }
 }
