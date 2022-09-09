@@ -1,6 +1,6 @@
 {
-  "name": "@voraciousdev/do-the-thing",
-  "version": "0.1.0",
+  "name": "lib",
+  "private": true,
   "type": "module",
   "main": "./cjs/dist/index.js",
   "module": "./dist/index.js",
@@ -15,16 +15,21 @@
     }
   },
   "scripts": {
-    "build": "npm run clean && npm run build:base && npm run build:subpath",
-    "build:base": "npm run build:base:cjs && npm run build:base:esm",
+    "build": "npm-run-all -p build:*",
+    "build:base": "npm-run-all -p build:base:*",
     "build:base:cjs": "tsc --project ./cjs/tsconfig.json",
     "build:base:esm": "tsc",
-    "build:subpath": "npm run build:subpath:cjs && npm run build:subpath:esm",
+    "build:subpath": "npm-run-all -p build:subpath:*",
     "build:subpath:cjs": "tsc --project ./subpath/cjs/tsconfig.json",
     "build:subpath:esm": "tsc --project ./subpath/tsconfig.json",
-    "clean": "rimraf ./dist ./cjs/dist ./subpath/dist ./subpath/cjs/dist"
+    "clean": "npm-run-all -p clean:*",
+    "clean:base": "rimraf ./dist",
+    "clean:subpath": "npm-run-all -p clean:subpath:*",
+    "clean:subpath:cjs": "rimraf ./subpath/cjs/dist",
+    "clean:subpath:esm": "rimraf ./subpath/dist"
   },
   "devDependencies": {
+    "npm-run-all": "^4.1.5",
     "rimraf": "^3.0.2",
     "typescript": "^4.8.2"
   }

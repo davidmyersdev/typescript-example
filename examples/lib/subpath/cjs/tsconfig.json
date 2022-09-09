@@ -2,6 +2,9 @@
   /* Visit https://aka.ms/tsconfig to read more about this file */
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "NodeNext"
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "outDir": "./dist",
+    "target": "ESNext"
   }
 }

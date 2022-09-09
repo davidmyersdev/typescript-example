@@ -1,0 +1,17 @@
+{
+  "name": "lib",
+  "private": true,
+  "scripts": {
+    "build": "npm-run-all -p build:*",
+    "build:base": "npm-run-all -p build:base:*",
+    "build:base:cjs": "tsc --project ./cjs/tsconfig.json",
+    "build:base:esm": "tsc",
+    "clean": "npm-run-all -p clean:*",
+    "clean:base": "rimraf ./dist"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.2"
+  }
+}
