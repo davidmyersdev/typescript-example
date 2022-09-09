@@ -1,0 +1,16 @@
+{
+  "name": "starter-app",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf ./dist"
+  },
+  "devDependencies": {
+    "rimraf": "^3.0.2",
+    "typescript": "^4.8.2"
+  },
+  "dependencies": {
+    "starter-lib": "file:../starter-lib"
+  }
+}

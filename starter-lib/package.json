@@ -1,5 +1,5 @@
 {
-  "name": "lib",
+  "name": "starter-lib",
   "private": true,
   "scripts": {
     "build": "npm-run-all -p build:*",
